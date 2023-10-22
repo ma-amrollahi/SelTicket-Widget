@@ -216,11 +216,11 @@ const SeatsPage: FC = () => {
           ))}
         </div>
         <button
-          className={`selticket-py-3 selticket-px-6 selticket-w-full selticket-text-white selticket-box-border ${
+          className={`selticket-py-3 selticket-rounded-xl  selticket-px-6 selticket-w-full selticket-text-white selticket-box-border ${
             selected != null && selected?.seats.length > 0
               ? "selticket-bg-red-600"
               : "selticket-bg-tertiary"
-          } selticket-rounded selticket-text-sm`}
+          } selticket-text-sm`}
           disabled={selected === null}
           onClick={() => {
             dispatch(orderActions.setSelected(selected!));

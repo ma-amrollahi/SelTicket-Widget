@@ -201,15 +201,12 @@ const OrderPage: FC = () => {
                 )} تومان`}</div>
               </div>
               {orderDetails?.customer_final_price > 0 && (
-                <div className="selticket-bg-black selticket-text-white selticket-p-3 selticket-text-on-primary selticket-text-xs selticket-font-semibold selticket-rounded">
+                <div className="selticket-bg-red-600 selticket-rounded-xl selticket-text-white selticket-p-3 selticket-text-on-primary selticket-text-sm selticket-rounded">
                   <div
-                    className="selticket-flex selticket-flex-row selticket-justify-around selticket-items-center"
+                    className="selticket-flex selticket-text-[1rem] selticket-flex-row selticket-justify-around selticket-items-center"
                     onClick={handlePaymentBtn}
                   >
                     <div>پرداخت</div>
-                    <div>{`${priceFormatToman(
-                      orderDetails?.customer_final_price
-                    )} تومان`}</div>
                   </div>
                 </div>
               )}
