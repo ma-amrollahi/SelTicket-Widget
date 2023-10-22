@@ -21,8 +21,10 @@ const flawlessConfig = createConfig({
                 return data?.message ? data?.message : undefined
             }
         },
-        2:{
-            message: "tnx"
+        success:{
+            message: (data) => {
+                return undefined
+            }
         }
     }
 })

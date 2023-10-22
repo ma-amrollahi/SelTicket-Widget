@@ -9,6 +9,7 @@ export default {
       colors: {
         "primary": "var(--selticket-primary-color)",
         "primary-container": "var(--selticket-primary-color-container)",
+        "text-white": "var(--selticket-primary-color-container)",
         "on-primary": "var(--selticket-on-primary-color)",
         "on-primary-container": "var(--selticket-on-primary-color-container)",
         "secondary": "var(--selticket-secondary-color)",
