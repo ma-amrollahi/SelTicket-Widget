@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  --selticket-primary-color: #f5f5f5;
+  --selticket-primary-color-container: #fff;
+  --selticket-secondary-color: #e30613;
+  --selticket-secondary-color-container: #fca5a5;
+  --selticket-accent-color: #d4d4d4;
+  --selticket-accent-color-container: #e5e5e5;
+  /* on color */
+  --selticket-on-primary-color: #1D1D1B;
+  --selticket-on-primary-color-container: #70706f;
+  --selticket-on-secondary-color: #9ca3af;
+}
+
+#selticket {
+  direction: rtl;
+  height: 100%;
+}
+
+@layer components {
+  .selticket-flex-center {
+    @apply selticket-flex selticket-justify-center selticket-items-center
+  }
+}
+
+@layer base {
+  
+    @font-face {
+      font-family: "selticket-Shabnam-farsi";
+      src: url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-FD.woff2') format('woff2'), url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-FD.woff') format('woff');
+    }
+    @font-face {
+      font-family: "selticket-Shabnam-farsi";
+      src: url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-Thin-FD.woff2') format('woff2'), url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-Thin-FD.woff') format('woff');
+      font-weight: 100;
+    }
+    @font-face {
+      font-family: "selticket-Shabnam-farsi";
+      src: url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-Medium-FD.woff2') format('woff2'), url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-Medium-FD.woff') format('woff');
+      font-weight: 500;
+    }
+    @font-face {
+      font-family: "selticket-Shabnam-farsi";
+      src: url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-Light-FD.woff2') format('woff2'), url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-Light-FD.woff') format('woff');
+      font-weight: 300;
+    }
+    @font-face {
+      font-family: "selticket-Shabnam-farsi";
+      src: url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-Bold-FD.woff2') format('woff2'), url('/fonts/shabnam-font-v5.0.1/Farsi-Digits/Shabnam-Bold-FD.woff') format('woff');
+      font-weight: 700;
+    }
+  
+    html {
+      font-family: selticket-Shabnam-farsi, system-ui, sans-serif;
+    }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body style="height: 100vh;">
+    <div id="selticket"></div>
+    <script onload="window.mountSelTicketWidget()" type="module" src="/src/main.tsx"></script>
+    <script>
+      window.selTicket = {
+        applicationId: "27d61146-46ee-ed11-92c1-0050568129d7",
+        token: "",
+        onClose: () => {
+          console.log("closed")
+        },
+      }
+    </script>
+  </body>
+</html>
