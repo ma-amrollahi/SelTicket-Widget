@@ -19,17 +19,22 @@ import { useNavigate } from "react-router-dom";
 interface Props {
   place: IPlace;
   show: IShow;
-  date:Date;
+  date: Date;
 }
 
 type HallSchedule = {
   [hall: string]: ISchedule[];
 };
 
-const PlaceComponent = ({ place, show,date }: Props) => {
+const PlaceComponent = ({ place, show, date }: Props) => {
   const [open, setOpen] = useState(false);
   const [schedulesLoading, setSchedulesLoading] = useState(false);
   const [schedules, setSchedules] = useState<HallSchedule | null>(null);
+  useEffect(() => {
+    setOpen(false);
+    setSchedules(null);
+    setSchedulesLoading(false);
+  }, [date]);
 
   const groupByKey = (list: ISchedule[], key: string) =>
     list.reduce(
@@ -56,11 +61,13 @@ const PlaceComponent = ({ place, show,date }: Props) => {
         <div
           onClick={async () => {
             setSchedulesLoading(true);
-            if (schedules == null) {
+            if (
+              schedules == null
+            ) {
               const _schedules = await controller.getSchedules(
                 place.id,
                 show.id,
-                `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+                `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
               );
               var data: HallSchedule = groupByKey(
                 _schedules.data.data,
@@ -121,15 +128,13 @@ const PlaceComponent = ({ place, show,date }: Props) => {
               </div>
             </div>
           ))}
-          {
-            open && schedules!=null && Object.keys(schedules).length == 0 && <>
-            
-              <h3 className="selticket-text-center selticket-mt-4">
+        {open && schedules != null && Object.keys(schedules).length == 0 && (
+          <>
+            <h3 className="selticket-text-center selticket-mt-4">
               هیچ سانسی یافت نشد!
-              </h3>
-            
-            </>
-          }
+            </h3>
+          </>
+        )}
       </div>
     </div>
   );

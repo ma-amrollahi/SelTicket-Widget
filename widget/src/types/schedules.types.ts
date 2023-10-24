@@ -1,15 +1,22 @@
 import { IPlace } from "./place.types";
 
 export interface ISchedule {
-    id: number,
-    title: string,
-    address: string | null,
-    contacts: null,
-    image: string | null,
-    province_id: number,
-    city_id: number,
-    lat: number | null,
-    long: number | null,
+    id:             number;
+    title:          string;
+    description:    null;
+    prices:         number[];
+    show_id:        number;
+    show_name:      string;
+    venue_id:       number;
+    venue_name:     string;
+    place_id:       number;
+    place_name:     string;
+    sales_start_at: Date;
+    sales_end_at:   Date;
+    date:           Date;
+    start_at:       string;
+    persian_date:   string;
+    status:         string;
 }
 
 export interface ISchedulenfoI {
