@@ -3,12 +3,12 @@ import PATHS from "../constants/paths/paths";
 import {ReserveDtoI} from "../dtos/reserve.dto";
 import {HttpResponse} from "../types/http.types";
 import {OrderDetailsDataI, OrderI, OrdersListI} from "../types/order.types";
-import {PlaceI} from "../types/place.types";
+import {IPlace} from "../types/place.types";
 import {CitiesT, ProvincesT} from "../types/province.types";
-import {SchedulesI} from "../types/schedules.types";
+import {ISchedule} from "../types/schedules.types";
 import {ScreeningI} from "../types/screening.type";
 import {BlockUnsanitizedI, SeatStatus} from "../types/seats.types";
-import {ShowI} from "../types/show.types";
+import {IShow} from "../types/show.types";
 import {SaleI} from "../types/sale.type";
 
 const customHeader = {
@@ -23,19 +23,19 @@ const controller = {
             provinceId,
         },
     }),
-    getShows: (screeningId: number) => server.get<HttpResponse<ShowI[]>>(PATHS.getShows + screeningId, {
+    getShows: (screeningId: number) => server.get<HttpResponse<IShow[]>>(PATHS.getShows + screeningId, {
         params: {
             screeningId,
         },
     }),
-    getPlaces: (showId: number, provinceId: number, cityId: number) => server.get<HttpResponse<PlaceI[]>>(PATHS.getPlaces, {
+    getPlaces: (showId: number, provinceId: number, cityId: number) => server.get<HttpResponse<IPlace[]>>(PATHS.getPlaces, {
         params: {
             showId,
             provinceId,
             cityId,
         },
     }),
-    getSchedules: (placeId: number, showId: number) => server.get<HttpResponse<SchedulesI[]>>(PATHS.getSchedules, {
+    getSchedules: (placeId: number, showId: number) => server.get<HttpResponse<ISchedule[]>>(PATHS.getSchedules, {
         params: {
             placeId,
             showId,

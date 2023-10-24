@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { showActions } from "../../features/show/show.slice";
 import useAppDispatch from "../../hooks/store/useAppDispatch";
 import SeatsPage from "../../pages/SeatsPage";
-import { PlaceWithSchedulesI } from "../../types/schedules.types";
-import { ShowI } from "../../types/show.types";
+import { PlaceWithISchedule } from "../../types/schedules.types";
+import { IShow } from "../../types/show.types";
 
 const PlaceWithSchedule: FC<{
-    place: PlaceWithSchedulesI,
-    show: ShowI,
+    place: PlaceWithISchedule,
+    show: IShow,
 }> = ({place, show}) => {
 
     const dispatch = useAppDispatch()

@@ -1,6 +1,6 @@
-import { PlaceI } from "./place.types";
+import { IPlace } from "./place.types";
 
-export interface SchedulesI {
+export interface ISchedule {
     id: number,
     title: string,
     address: string | null,
@@ -12,7 +12,7 @@ export interface SchedulesI {
     long: number | null,
 }
 
-export interface SchedulesInfoI {
+export interface ISchedulenfoI {
     day: number,
     weekDay: string,
     month: string,
@@ -34,10 +34,10 @@ export enum WeekDayE {
     "جمعه",
 }
 
-export interface PlaceWithSchedulesI extends PlaceI {
-    schedules: SchedulesI[],
+export interface PlaceWithISchedule extends IPlace {
+    schedules: ISchedule[],
 }
 
-export interface DayI extends SchedulesInfoI {
-    places: PlaceWithSchedulesI[],
+export interface DayI extends ISchedulenfoI {
+    places: PlaceWithISchedule[],
 }

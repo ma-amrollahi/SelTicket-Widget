@@ -1,7 +1,7 @@
-import { SchedulesI } from "../../types/schedules.types";
-import { ShowI } from "../../types/show.types";
+import { ISchedule } from "../../types/schedules.types";
+import { IShow } from "../../types/show.types";
 
 export interface ShowStateI {
-    show?: ShowI,
-    schedule?: SchedulesI,
+    show?: IShow,
+    schedule?: ISchedule,
 }

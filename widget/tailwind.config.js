@@ -23,7 +23,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
   prefix: "selticket-"
 }
 

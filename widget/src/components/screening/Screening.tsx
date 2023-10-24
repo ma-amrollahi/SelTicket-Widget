@@ -7,13 +7,13 @@ import { showActions } from "../../features/show/show.slice";
 import useAppDispatch from "../../hooks/store/useAppDispatch";
 import ShowPage from "../../pages/ShowPage";
 import { ScreeningI } from "../../types/screening.type";
-import { ShowI } from "../../types/show.types";
+import { IShow } from "../../types/show.types";
 
 const Screening: FC<ScreeningI> = (props) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const [shows, setShows] = useState<ShowI[]>([]);
+  const [shows, setShows] = useState<IShow[]>([]);
   const [more, setMore] = useState<boolean>(false);
 
   useEffect(() => {

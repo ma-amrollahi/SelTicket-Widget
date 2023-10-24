@@ -1,4 +1,4 @@
-export interface ShowI {
+export interface IShow {
     id: number,
     kind: string,
     title: string,

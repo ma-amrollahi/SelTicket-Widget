@@ -204,7 +204,12 @@ const OrderPage: FC = () => {
                 <div className="selticket-bg-red-600 selticket-rounded-xl selticket-text-white selticket-p-3 selticket-text-on-primary selticket-text-sm selticket-rounded">
                   <div
                     className="selticket-flex selticket-text-[1rem] selticket-flex-row selticket-justify-around selticket-items-center"
-                    onClick={handlePaymentBtn}
+                    onClick={() => {
+                      const modal = document.getElementById(
+                        "my_modal_1"
+                      ) as any;
+                      modal.showModal();
+                    }}
                   >
                     <div>پرداخت</div>
                   </div>
@@ -215,6 +220,32 @@ const OrderPage: FC = () => {
         </Card>
         <Feedback />
         {error.show && <Alert type={"error"} message={error.message} />}
+
+        <dialog id="my_modal_1" className="selticket-modal">
+          <div className="selticket-modal-box">
+            <h3 className="selticket-font-bold selticket-text-lg">هشدار</h3>
+            <p className="py-4">آیا از پرداخت این بلیط اطمینان دارید؟</p>
+            <div className="selticket-modal-action">
+              <form method="dialog">
+                {/* if there is a button in form, it will close the modal */}
+                <button onClick={() => {}} className="btn">
+                  بستن
+                </button>
+                <button
+                  onClick={handlePaymentBtn}
+                  className="selticket-btn selticket-bg-red-500 selticket-text-white selticket-mr-6"
+                >
+                  پرداخت
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <form method="dialog" className="selticket-modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      
       </div>
     );
   }

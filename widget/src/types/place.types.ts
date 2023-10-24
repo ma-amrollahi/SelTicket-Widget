@@ -1,4 +1,4 @@
-export interface PlaceI {
+export interface IPlace {
     id: number,
     title: string,
     address: string,

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { SchedulesI } from "../../types/schedules.types";
-import { ShowI } from "../../types/show.types";
+import { ISchedule } from "../../types/schedules.types";
+import { IShow } from "../../types/show.types";
 import { ShowStateI } from "./show.types";
 
 const initialState: ShowStateI = {
@@ -14,10 +14,10 @@ export const showSlice = createSlice({
         reset: (state) => {
             state = initialState
         },
-        setShow: (state, action: PayloadAction<ShowI>) => {
+        setShow: (state, action: PayloadAction<IShow>) => {
             state.show = action.payload
         },
-        setSchedule: (state, action: PayloadAction<SchedulesI>) => {
+        setSchedule: (state, action: PayloadAction<ISchedule>) => {
             state.schedule = action.payload
         },
     },
