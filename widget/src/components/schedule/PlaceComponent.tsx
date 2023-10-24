@@ -47,10 +47,10 @@ const PlaceComponent = ({ place, show, date }: Props) => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  
-  function numberWithCommas(x:number) {
+
+  function numberWithCommas(x: number) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+  }
 
   return (
     <div className="selticket-border selticket-rounded-lg">
@@ -115,7 +115,9 @@ const PlaceComponent = ({ place, show, date }: Props) => {
                           سانس {_sche.title.split(" ")[3]}
                         </div>
                         <div className="selticket-text-xs selticket-mt-2 selticket-text-grey-900">
-                          {_sche.prices.length > 0 && numberWithCommas(_sche.prices[0]/10)} تومان
+                          {_sche.prices.length > 0
+                            ? `${numberWithCommas(_sche.prices[0] / 10)} تومان`
+                            : "بدون قیمت"}
                         </div>
                       </div>
                       <button
