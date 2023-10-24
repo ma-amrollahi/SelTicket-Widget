@@ -47,6 +47,10 @@ const PlaceComponent = ({ place, show, date }: Props) => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  
+  function numberWithCommas(x:number) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
   return (
     <div className="selticket-border selticket-rounded-lg">
@@ -61,9 +65,7 @@ const PlaceComponent = ({ place, show, date }: Props) => {
         <div
           onClick={async () => {
             setSchedulesLoading(true);
-            if (
-              schedules == null
-            ) {
+            if (schedules == null) {
               const _schedules = await controller.getSchedules(
                 place.id,
                 show.id,
@@ -110,7 +112,10 @@ const PlaceComponent = ({ place, show, date }: Props) => {
                     >
                       <div className="selticket-py-5 selticket-flex selticket-flex-col selticket-items-center">
                         <div className="selticket-text-base selticket-font-bold selticket-text-secondary">
-                          {_sche.title.split(" ")[3]}
+                          سانس {_sche.title.split(" ")[3]}
+                        </div>
+                        <div className="selticket-text-xs selticket-mt-2 selticket-text-grey-900">
+                          {_sche.prices.length > 0 && numberWithCommas(_sche.prices[0]/10)} تومان
                         </div>
                       </div>
                       <button
