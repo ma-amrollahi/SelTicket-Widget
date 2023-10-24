@@ -19,13 +19,14 @@ import { useNavigate } from "react-router-dom";
 interface Props {
   place: IPlace;
   show: IShow;
+  date:Date;
 }
 
 type HallSchedule = {
   [hall: string]: ISchedule[];
 };
 
-const PlaceComponent = ({ place, show }: Props) => {
+const PlaceComponent = ({ place, show,date }: Props) => {
   const [open, setOpen] = useState(false);
   const [schedulesLoading, setSchedulesLoading] = useState(false);
   const [schedules, setSchedules] = useState<HallSchedule | null>(null);
@@ -58,7 +59,8 @@ const PlaceComponent = ({ place, show }: Props) => {
             if (schedules == null) {
               const _schedules = await controller.getSchedules(
                 place.id,
-                show.id
+                show.id,
+                `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
               );
               var data: HallSchedule = groupByKey(
                 _schedules.data.data,
@@ -119,6 +121,15 @@ const PlaceComponent = ({ place, show }: Props) => {
               </div>
             </div>
           ))}
+          {
+            open && schedules!=null && Object.keys(schedules).length == 0 && <>
+            
+              <h3 className="selticket-text-center selticket-mt-4">
+              هیچ سانسی یافت نشد!
+              </h3>
+            
+            </>
+          }
       </div>
     </div>
   );

@@ -35,10 +35,11 @@ const controller = {
             cityId,
         },
     }),
-    getSchedules: (placeId: number, showId: number) => server.get<HttpResponse<ISchedule[]>>(PATHS.getSchedules, {
+    getSchedules: (placeId: number, showId: number,date:string) => server.get<HttpResponse<ISchedule[]>>(PATHS.getSchedules, {
         params: {
             placeId,
             showId,
+            date
         },
     }),
     getSeats: (scheduleId: number) => server.get<

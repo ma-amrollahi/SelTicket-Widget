@@ -123,13 +123,16 @@ const ShowSchedules: FC<{
                     <button
                       className={
                         "selticket-relative selticket-flex selticket-flex-col selticket-justify-center selticket-items-center selticket-min-w-[112px] selticket-px-4 selticket-py-1 selticket-border selticket-rounded selticket-w-32 selticket-group " +
-                        (date === selectedDate
+                        (date.getDate() === selectedDate.getDate()
                           ? "selticket-border-secondary selticket-selected"
                           : "")
                       }
-                      onClick={() => {}}
+                      onClick={() => {
+                        
+                        setSelectedDate(date);
+                      }}
                     >
-                      {date === new Date() && (
+                      {date.getDate() === selectedDate.getDate() && (
                         <div
                           className={
                             "selticket-absolute selticket-right-1 selticket-top-1 selticket-w-2.5 selticket-h-2.5 selticket-rounded-full selticket-bg-secondary"
@@ -179,7 +182,7 @@ const ShowSchedules: FC<{
             <div className="selticket-flex selticket-flex-col selticket-items-stretch selticket-justify-center selticket-gap-y-4 selticket-overflow-hidden">
     
               {places.map((place) => {
-                return <PlaceComponent key={place.id} show={props.show} place={place} />;
+                return <PlaceComponent key={place.id} date={selectedDate} show={props.show} place={place} />;
               })}
             </div>
           </>
