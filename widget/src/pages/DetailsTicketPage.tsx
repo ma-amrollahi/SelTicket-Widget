@@ -2,7 +2,7 @@ import {FC, useEffect, useState} from "react";
 import SeatCard from "../components/card/SeactCard";
 import Card from "../components/card/Card";
 import {MdContentCopy} from "react-icons/md";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {OrderDetailsDataI} from "../types/order.types";
 import {useHttp} from "flawless-ui";
 import controller from "../controllers/controller";
@@ -16,6 +16,7 @@ const DetailsTicketPage: FC = () => {
     const [copyAlert, setCopyAlert] = useState<boolean>(false)
 
     const {Feedback, loading, call} = useHttp();
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -117,13 +118,14 @@ const DetailsTicketPage: FC = () => {
                         <div>{priceFormatToman(details?.tickets.reduce((total, s) => total + s.price, 0) ?? 0)} تومان</div>
                     </div>
                 </Card>
-                <div className={"selticket-bg-black selticket-text-white selticket-py-4 selticket-px-3 selticket-text-center selticket-text-sm selticket-font-semibold selticket-rounded hover:selticket-opacity-80"}>
+                <div onClick={()=>{
+                    navigate(-1);
+                }} className={"selticket-bg-red-600 selticket-text-white selticket-py-4 selticket-px-3 selticket-text-center selticket-text-sm selticket-font-semibold selticket-rounded hover:selticket-opacity-80"}>
                     بازگشت به فهرست بلیت ها
                 </div>
                 {copyAlert && <div className={"selticket-sticky selticket-bottom-[30px] selticket-text-center selticket-bg-red-600 selticket-transition selticket-duration-300 selticket-p-4 selticket-mb-8 selticket-rounded-lg selticket-text-white selticket-text-xs"}>
                     <div>{`کد رزرو کپی شد`}</div>
                 </div>}
-                <Feedback />
             </div>
         </>
     )
