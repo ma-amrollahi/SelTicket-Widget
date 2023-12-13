@@ -17,7 +17,7 @@ const Layout: FC<PropsWithChildren> = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname != '/cinema') {
+    if (window.location.pathname != '/cinema') {
       navigate('/')
     }
   }, [location.pathname])
