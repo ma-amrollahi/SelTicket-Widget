@@ -20,7 +20,7 @@ const Layout: FC<PropsWithChildren> = () => {
     if (window.location.pathname != '/cinema') {
       navigate('/')
     }
-  }, [location.pathname])
+  }, [window.location.pathname])
   
 
   const handleBack = () => {
