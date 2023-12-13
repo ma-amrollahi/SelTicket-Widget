@@ -218,7 +218,6 @@ const OrderPage: FC = () => {
             </>
           )}
         </Card>
-        <Feedback />
         {error.show && <Alert type={"error"} message={error.message} />}
 
         <dialog id="my_modal_1" className="selticket-modal">

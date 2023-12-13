@@ -34,7 +34,6 @@ const TicketsListPage: FC = () => {
   return (
     <div className="selticket-p-4">
       {orders?.result?.length! > 0 ? (orders?.result?.map((order, index) => <OrderCard key={order?.orderId} data={order} />)) : <EmptyOrders />}
-      <Feedback />
     </div>
   );
 };
