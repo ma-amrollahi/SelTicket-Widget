@@ -31,9 +31,10 @@ const ShowSchedules: FC<{
 
   const setNextSevenDates = () => {
     const today = new Date();
+    debugger;
     var _dates: Date[] = [today];
     for (let i = 0; i < 6; i++) {
-      var _date = new Date();
+      var _date = new Date(_dates[i]);
       _date.setDate(_dates[i].getDate() + 1);
       _dates.push(_date);
     }
