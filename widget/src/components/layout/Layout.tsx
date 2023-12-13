@@ -1,6 +1,6 @@
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect } from "react";
 import {
   Link,
   Outlet,
@@ -15,6 +15,13 @@ import { GoChecklist } from "react-icons/go";
 const Layout: FC<PropsWithChildren> = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname != '/cinema') {
+      navigate('/')
+    }
+  }, [location.pathname])
+  
 
   const handleBack = () => {
     if (location.pathname === "/") window.selTicket?.onClose();
